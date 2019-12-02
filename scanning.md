@@ -42,3 +42,27 @@ KDD2019: ***Adaptive-Halting Policy Network for Early Classification***
 某些场景下，可以考虑不需要看到全部特征再作分类，在看过一部分特征之后就可以作分类，但是显然会影响准确率。涉及到trade-off。
 
 本文利用RNN-based网络进行分类，同时通过强化学习来学习何时停止观测并且输出分类结果。
+
+## 5. Real-time event detection on Social Data Streams
+
+event detection
+
+event: a list of clusters of trending entites over time.
+
+model: it applies clustering on a large stream with millions of entities per minute and produces a dynamically updated set of events.
+
+
+
+## 6. Session-based social recommendation via dynamic graph attention networks
+
+Model both **users' session-based interests** and **their social influences**(their friends' influences on him according to his current session). 
+
+使用LSTM对当前用户会话建模，得到embedding；
+
+对其朋友在当前时刻的前一次会话使用相同LSTM建模，得到朋友短期兴趣embedding；
+
+对其朋友的长期兴趣，使用一个（与时间无关的）矩阵表示，每一列表示一个朋友的长期兴趣；
+
+将以上三者使用一个**dynamic graph attention network**建模，得到用户的最终embedding；
+
+与物品embedding内积，再softmax，得到下一个物品的浏览概率
